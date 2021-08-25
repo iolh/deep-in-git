@@ -95,8 +95,6 @@ git cherry-pick <commitHash>
 
 HEAD 头指针，表示一次 commit，可能是某个 branch 上的 commit，也可能是单独的 commit
 
-git diff <commitHash> <commitHash> 比较两次 commit 差异
-
 HEAD 特殊标识符
 
 HEAD^ HEAD^^
@@ -123,4 +121,60 @@ reword
   调整位置
   squash
 
-### 
+### 两次 commit 比较差异
+
+git diff <commitHash> <commitHash> -- <file>
+
+### 暂存区和 HEAD 比较差异
+
+git diff --cached
+
+### 工作区和暂存区比较差异
+
+git diff
+
+### 暂存区恢复
+
+- 全部恢复
+  git reset HEAD
+- 部分恢复
+  git reset HEAD -- <file>
+
+### 工作区恢复到暂存区
+
+git checkout -- <file>
+
+### 清除 commit
+
+git rest --hard <commitHash>
+
+### 删除文件
+
+git rm <file>
+
+### 临时变更
+
+git stash 贮藏变更
+git stash pop 取出变更，不保留记录
+git stash apply 取出变更，保留记录
+
+### 忽略管理部分文件
+
+.gitignore
+
+git rm -- cached <file>
+
+### 传输协议
+
+- 哑协议
+  - /path/to/repo.git
+- 智能协议
+  - file:///path/to/repo.git
+  - http/https
+  - ssh
+
+### 备份
+
+git clone --bare <filePath>
+git remote add origin https://github.com/iolh/deep-in-git.git
+git push --set-upstream origin main
