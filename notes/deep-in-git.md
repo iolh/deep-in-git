@@ -101,3 +101,26 @@ HEAD 特殊标识符
 
 HEAD^ HEAD^^
 HEAD~1 HEAD~2
+
+### 删除分支
+
+git branch -D <branch-name>
+git branch -d <branch-name>
+
+### 修改 commit 的 message
+
+git commit --amend 最新 commit
+git rebase -i <root|commitHash> 历史 commit
+reword
+
+### 合并 commit
+
+- 连续的 commit
+  git rebase -i <root|commitHash>
+  squash
+- 非连续的 commit
+  git rebase -i <root|commitHash>
+  调整位置
+  squash
+
+### 
